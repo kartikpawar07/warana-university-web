@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Students | Super Admin | Warana University</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css"
+    />
+    <link rel="stylesheet" href="assets/css/style.css" />
+  </head>
+  <body>
+    <div class="wu-wrapper" id="wuApp">
+      <div
+        class="wu-sidebar-backdrop"
+        id="wuSidebarBackdrop"
+        aria-hidden="true"
+      ></div>
+      <aside class="wu-sidebar" id="wuSidebar" aria-label="Main navigation">
+        <div class="wu-sidebar-brand">
+          <button
+            type="button"
+            class="wu-sidebar-close d-lg-none"
+            id="wuSidebarClose"
+            aria-label="Close menu"
+          >
+            <i class="bi bi-x-lg"></i>
+          </button>
+          <img
+            src="assets/img/university-logo.png"
+            alt="Warana University"
+            class="wu-university-logo"
+            width="200"
+            height="88"
+          />
+        </div>
+        <ul class="wu-nav">
+          <li>
+            <a class="wu-nav-link" href="dashboard.html">
+              <i class="bi bi-grid-1x2-fill"></i>
+              <span>Dashboard</span>
+            </a>
+          </li>
+          <li>
+            <a class="wu-nav-link" href="colleges.html">
+              <i class="bi bi-building"></i>
+              <span>Colleges</span>
+            </a>
+          </li>
+          <li>
+            <a class="wu-nav-link" href="departments.html">
+              <i class="bi bi-diagram-3"></i>
+              <span>Departments</span>
+            </a>
+          </li>
+          <li>
+            <a class="wu-nav-link active" href="students.html">
+              <i class="bi bi-people"></i>
+              <span>Students</span>
+            </a>
+          </li>
+          <li>
+            <a class="wu-nav-link text-danger" href="login.html">
+              <i class="bi bi-box-arrow-right"></i>
+              <span>Logout</span>
+            </a>
+          </li>
+        </ul>
+      </aside>
+
+      <main class="wu-main">
+        <div class="wu-mobile-topbar">
+          <button
+            type="button"
+            class="wu-btn-menu"
+            id="wuSidebarOpen"
+            aria-label="Open menu"
+            aria-controls="wuSidebar"
+            aria-expanded="false"
+          >
+            <i class="bi bi-list"></i>
+          </button>
+          <span class="wu-mobile-topbar-title text-truncate"
+            >Warana University</span
+          >
+        </div>
+        <div class="wu-header-card">
+          <div class="wu-header-inner">
+            <div class="wu-header-spacer" aria-hidden="true"></div>
+            <div class="wu-header-center">
+              <p class="wu-tagline mb-0">
+                ॥ विद्या सर्वस्य भूषणम् ॥
+              </p>
+              <p class="wu-org-line mb-1">
+                SHREE WARANA VIBHAG SHIKSHAN MANDAL'S
+              </p>
+              <h1 class="wu-header-title mb-1">
+                Warana University, Warananagar
+              </h1>
+              <span class="wu-badge-uni">(A State Public University)</span>
+            </div>
+            <div class="wu-header-aside wu-header-actions">
+              <div class="wu-portrait-frame">
+                <img
+                  class="wu-portrait-img"
+                  src="assets/img/founder.png"
+                  alt="Founder"
+                  width="72"
+                  height="72"
+                />
+              </div>
+              <a class="btn btn-logout px-3" href="login.html">
+                <i class="bi bi-box-arrow-right me-1"></i> Logout
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <div class="wu-content-card">
+          <h2 class="wu-page-title">Students</h2>
+          <p class="wu-page-sub">
+            Search and filter students by college and department.
+          </p>
+
+          <div class="wu-toolbar">
+            <select class="form-select" id="filterCollege" aria-label="Filter by college">
+              <option value="">All colleges</option>
+              <option value="Faculty of Engineering &amp; Technology">
+                Faculty of Engineering &amp; Technology
+              </option>
+              <option value="Institute of Management Studies">
+                Institute of Management Studies
+              </option>
+              <option value="College of Science">College of Science</option>
+            </select>
+            <select class="form-select" id="filterDepartment" aria-label="Filter by department">
+              <option value="">All departments</option>
+              <option value="Computer Science &amp; Engineering">
+                Computer Science &amp; Engineering
+              </option>
+              <option value="Mechanical Engineering">Mechanical Engineering</option>
+              <option value="Business Administration">Business Administration</option>
+              <option value="Physics">Physics</option>
+            </select>
+            <div class="flex-grow-1 flex-lg-grow-0 ms-lg-auto">
+              <div class="input-group">
+                <span class="input-group-text bg-white border-end-0">
+                  <i class="bi bi-search text-muted"></i>
+                </span>
+                <input
+                  type="search"
+                  class="form-control border-start-0 search-wide"
+                  id="filterSearch"
+                  placeholder="Search name or email..."
+                  aria-label="Search students"
+                />
+              </div>
+            </div>
+          </div>
+
+          <div class="wu-table-wrap">
+            <table class="table wu-table table-hover">
+              <thead>
+                <tr>
+                  <th scope="col">Name</th>
+                  <th scope="col">Email</th>
+                  <th scope="col">College</th>
+                  <th scope="col">Department</th>
+                </tr>
+              </thead>
+              <tbody id="studentsTableBody">
+                <tr
+                  data-student-row
+                  data-college="Faculty of Engineering &amp; Technology"
+                  data-department="Computer Science &amp; Engineering"
+                  data-search="aditi patil aditi.patel@waranauniv.edu.in"
+                >
+                  <td>Aditi Patil</td>
+                  <td>aditi.patel@waranauniv.edu.in</td>
+                  <td>Faculty of Engineering &amp; Technology</td>
+                  <td>Computer Science &amp; Engineering</td>
+                </tr>
+                <tr
+                  data-student-row
+                  data-college="Faculty of Engineering &amp; Technology"
+                  data-department="Mechanical Engineering"
+                  data-search="rohan kulkarni rohan.kulkarni@waranauniv.edu.in"
+                >
+                  <td>Rohan Kulkarni</td>
+                  <td>rohan.kulkarni@waranauniv.edu.in</td>
+                  <td>Faculty of Engineering &amp; Technology</td>
+                  <td>Mechanical Engineering</td>
+                </tr>
+                <tr
+                  data-student-row
+                  data-college="Institute of Management Studies"
+                  data-department="Business Administration"
+                  data-search="sneha desai sneha.desai@waranauniv.edu.in"
+                >
+                  <td>Sneha Desai</td>
+                  <td>sneha.desai@waranauniv.edu.in</td>
+                  <td>Institute of Management Studies</td>
+                  <td>Business Administration</td>
+                </tr>
+                <tr
+                  data-student-row
+                  data-college="College of Science"
+                  data-department="Physics"
+                  data-search="vikram joshi vikram.joshi@waranauniv.edu.in"
+                >
+                  <td>Vikram Joshi</td>
+                  <td>vikram.joshi@waranauniv.edu.in</td>
+                  <td>College of Science</td>
+                  <td>Physics</td>
+                </tr>
+                <tr
+                  data-student-row
+                  data-college="Faculty of Engineering &amp; Technology"
+                  data-department="Computer Science &amp; Engineering"
+                  data-search="meera shah meera.shah@waranauniv.edu.in"
+                >
+                  <td>Meera Shah</td>
+                  <td>meera.shah@waranauniv.edu.in</td>
+                  <td>Faculty of Engineering &amp; Technology</td>
+                  <td>Computer Science &amp; Engineering</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </main>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="assets/js/script.js"></script>
+  </body>
+</html>
